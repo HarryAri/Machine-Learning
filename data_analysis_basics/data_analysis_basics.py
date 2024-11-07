@@ -29,5 +29,39 @@ print(f" It is: \n {dftrain.loc[0], y_train.loc[0]}")
 print(dftrain.describe())
 print(dftrain.shape)
 
+# Displays the graph that shows histogram of age with bins = 20
+# Bins tells in what intervals data should be distributed
+# In below example age is between 0 and 80 and bins are set to 20,
+# therefore, the intervals will be in 4 (80 / 20 = 4).
+# There two ways of doing it
+# 1:
 dftrain.age.hist(bins = 20)
+plt.show()
+# 2:
+dftrain['age'].hist(bins = 20)
+plt.show()
+
+# It plots vertical bar graph that counts how many is
+# there (females, males) in the column sex
+dftrain.sex.value_counts().plot(kind = 'bar')
+plt.show()
+
+# It plots vertical bar graph that counts how many is
+# there (females, males) in the column sex
+dftrain['class'].value_counts().plot(kind = 'barh')
+plt.show()
+
+# pd.concat() concatenates (combines) two DataFrames along a specified axis.
+# axis=1 specifies that the concatenation should occur horizontally,
+# adding y_train as a new column in dftrain.
+
+#.groupby('sex') groups the concatenated DataFrame by the sex column,
+# creating two groups: one for Male and one for Female.
+
+# .survived.mean() calculates for each gender group
+# (Male and Female) the mean of the survived column.
+
+# set_xlabel('% survive') adds a label to the x-axis to
+# indicate that the bar values represent the percentage of survival.
+pd.concat([dftrain, y_train], axis = 1).groupby('sex').survived.mean().plot(kind = 'barh').set_xlabel('% survive')
 plt.show()
