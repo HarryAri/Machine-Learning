@@ -18,5 +18,5 @@ v = tf.Variable([1, 2, 3, 4], tf.int64)
 # Creating rank 2 tensor (matrix = 2D) that is containing datatype int
 m = tf.Variable([[1, 2, 3], [1, 2, 3], [1, 2, 3]], tf.int64)
 
-print(f"Rank 1 tensor (vector) with shape: {v.shape} and looks like that: {v.numpy()}")
-print(f"Rank 2 tensor (matrix) with shape: {m.shape} and looks like that: \n {m.numpy()}" )
+print(f"Rank {tf.rank(v)} tensor (vector) with shape: {v.shape} and looks like that: {v.numpy()}")
+print(f"Rank {tf.rank(m)} tensor (matrix) with shape: {m.shape} and looks like that: \n {m.numpy()}" )
