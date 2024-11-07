@@ -12,3 +12,11 @@ floating = tf.Variable(3.123, tf.float64)
 print(f"Rank 0 tensor (scalar) containing string: {string}")
 print(f"Rank 0 tensor (scalar) containing string: {number}")
 print(f"Rank 0 tensor (scalar) containing float: {floating}")
+
+# Creating rank 1 tensor (vector = 1D) that is containing datatype int
+v = tf.Variable([1, 2, 3, 4], tf.int64)
+# Creating rank 2 tensor (matrix = 2D) that is containing datatype int
+m = tf.Variable([[1, 2, 3], [1, 2, 3], [1, 2, 3]], tf.int64)
+
+print(f"Rank 1 tensor (vector) with shape: {v.shape} and looks like that: {v.numpy()}")
+print(f"Rank 2 tensor (matrix) with shape: {m.shape} and looks like that: \n {m.numpy()}" )
