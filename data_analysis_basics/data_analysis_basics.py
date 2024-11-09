@@ -65,4 +65,3 @@ plt.show()
 # indicate that the bar values represent the percentage of survival.
 pd.concat([dftrain, y_train], axis = 1).groupby('sex').survived.mean().plot(kind = 'barh').set_xlabel('% survive')
 plt.show()
-
